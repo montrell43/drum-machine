@@ -9,7 +9,8 @@ body {
     justify-content: center;
     margin: none;
     flex-direction: column;
-    background-color: #81b29a;
+    background-color: #305e8b;
+    color: white;
 }
 
 .tip {
@@ -27,20 +28,20 @@ body {
 }
 
 .background-left {
-    border-bottom: 400px solid #e07a5f;
+    border-bottom: 400px solid #5fd7e0;
     border-left: 100px solid transparent;
 }
 
 .background-center {
     flex: 1;
-    background-color: #f2cc8f;
+    background-color: #9caaac;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 .background-right {
-    border-bottom: 400px solid #e07a5f;
+    border-bottom: 400px solid #5fd7e0;
     border-right: 100px solid transparent;
 }
 
@@ -49,7 +50,7 @@ body {
     width: 30%;
     background-color: #f4f1de;
     margin: 24px 0;
-    border: 6px dashed #e07a5f;
+    border: 6px dashed #2c3438;
 }
 
 @keyframes tick {

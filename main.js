@@ -5,7 +5,7 @@ const kick = new Audio('sounds/kick-drum.mp3')
 const snare = new Audio('sounds/snare-drum.mp3')
 const hihat = new Audio('sounds/hi-hat.mp3')
 
-const metronomeToggle = document.getElementById('metronome-toggle')
+const metronomeToggle = document.getElementById('metronome')
 const countPlay = document.getElementById('count-display')
 
 const kickToggle = document.getElementById('kick-toggle')
@@ -32,13 +32,13 @@ document.body.addEventListener('click', () => {
 
 // This function is called every 600ms
 function update() {
-count++
 
-    const metronomeCount = (count % 4) || 4
+
+    const metronomeCount = (count % 4) + 1
     countPlay.textContent = metronomeCount;
 
     if (audio && metronomeToggle.checked) {
-        if(metronomeCount === 4) {
+        if(metronomeCount < 4) {
      // Play the 'tick' sound
     tick.play();
   } else {
@@ -58,8 +58,7 @@ count++
   if (audio && hihatToggle.checked && Number(hihatBeat.value) === metronomeCount) {
     hihat.play()
   }
-  
-  count ++;
+  count++
 }
 
 
