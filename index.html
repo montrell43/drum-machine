@@ -12,7 +12,10 @@
         (Click anywhere to hear sound...)
     </div>
 
+    <div id="count-display">1</div>
+
     <div class="metronome">
+        <input type="checkbox" id="metronome" checked>
         <div class="background-left"></div>
         <div class="background-center">
             <div class="core"></div>
@@ -22,18 +25,18 @@
     </div>
     
     <div>
-        <input type="checkbox" name="kick" id="kick-toggle">Kick
-        <input type="number" name="kickbeat" id="kick-beat" min="1" max="4" value="1">
+        <input type="checkbox" id="kick-toggle">Kick
+        <input type="number" id="kick-beat" min="1" max="4" value="1">
     </div>
     
     <div>
-        <input type="checkbox" name="snare" id="snare-toggle">Snare
-        <input type="number" name="snarebeat" id="snare-beat" min="1" max="4" value="2">
+        <input type="checkbox" id="snare-toggle">Snare
+        <input type="number" id="snare-beat" min="1" max="4" value="2">
     </div>
     
     <div>
-        <input type="checkbox" name="hihat" id="hihat-toggle">Hi-hat
-        <input type="number" name="hihatbeat" id="hihat-beat" min="1" max="4" value="3">
+        <input type="checkbox" id="hihat-toggle">Hi-hat
+        <input type="number" id="hihat-beat" min="1" max="4" value="3">
     </div>
 
     <script src="main.js"></script>

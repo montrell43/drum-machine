@@ -3,50 +3,65 @@ const tick = new Audio('sounds/tick.mp3');
 const tock = new Audio('sounds/tock.mp3')
 const kick = new Audio('sounds/kick-drum.mp3')
 const snare = new Audio('sounds/snare-drum.mp3')
-const hihat = new Audio('sounds/hi-hat-drum.mp3')
-
-const kickToggle = document.getElementById('kick-toggle')
-const snareToggle = document.getElementById('snare-toggle')
-const hihatToggle = document.getElementById('hihat-toggle')
-
-const kickBeat = document.getElementById('kick-beat')
-const snareBeat = document.getElementById('snare-beat')
-const hihatBeat = document.getElementById('hihat-beat')
+const hihat = new Audio('sounds/hi-hat.mp3')
 
 const metronomeToggle = document.getElementById('metronome-toggle')
-
-let count = 1
 const countPlay = document.getElementById('count-display')
+
+const kickToggle = document.getElementById('kick-toggle')
+const kickBeat = document.getElementById('kick-beat')
+
+const snareToggle = document.getElementById('snare-toggle')
+const snareBeat = document.getElementById('snare-beat')
+
+const hihatToggle = document.getElementById('hihat-toggle')
+const hihatBeat = document.getElementById('hihat-beat')
+
+
+
+let audio = false
+let count = 0
+
+document.body.addEventListener('click', () => {
+    audio = true
+    
+    tick.play().catch(() => {})
+})
+
+
+
 // This function is called every 600ms
 function update() {
-  if(count < 4) {
+count++
+
+    const metronomeCount = (count % 4) || 4
+    countPlay.textContent = metronomeCount;
+
+    if (audio && metronomeToggle.checked) {
+        if(metronomeCount === 4) {
      // Play the 'tick' sound
     tick.play();
   } else {
     tock.play()
   }
-
-  countPlay.textContent = count;
-
+    }
   
-  
-  if(kickToggle.checked) {
+
+  if(audio && kickToggle.checked && Number(kickBeat.value) === metronomeCount) {
     kick.play()
   }
 
-  if (snareToggle) {
+  if (audio && snareToggle.checked && Number(snareBeat.value) === metronomeCount) {
     snare.play()
   } 
   
-  if (hihatToggle.checked) {
+  if (audio && hihatToggle.checked && Number(hihatBeat.value) === metronomeCount) {
     hihat.play()
   }
   
   count ++;
-  if(count > 4) {
-    count = 1
-  }
 }
+
 
 // This function sets up update() to be called every 600ms
 function setupUpdate() {
